@@ -4,6 +4,12 @@ A lightweight mock API designed to simulate vendor data interfaces for ETL pipel
 
 ---
 
+### Requirements
+- Python 3.9+
+- PostgreSQL running locally
+
+---
+
 ## ⚡ Quick Start (2 minutes)
 
 ```bash
@@ -102,17 +108,38 @@ graphql-etl-mock-api/
 
 ## 🚀 Setup (Detailed)
 
+### Requirements
+
+- Python 3.9+
+- PostgreSQL running locally
+
+---
+
 ### 1. Initialize environment
 
 ```bash
 python 00_init_env.py
 ```
 
-Edit `.env` with your PostgreSQL credentials.
+This will create a `.env` file.
 
 ---
 
-### 2. Install dependencies
+### 2. Configure database connection
+
+Open the `.env` file and update with your PostgreSQL credentials:
+
+```bash
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=your_database
+DB_USER=your_user
+DB_PASSWORD=your_password
+```
+
+---
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -120,11 +147,21 @@ pip install -r requirements.txt
 
 ---
 
-### 3. Run API
+### 4. Run API
 
 ```bash
 uvicorn app:app --reload
 ```
+
+---
+
+### 5. Verify API is running
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+If successful, the API will return a response confirming it is running.
 
 ---
 
